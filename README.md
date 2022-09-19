@@ -57,3 +57,17 @@ sbt doc
 It will generate index.html file as "target/scala-2.11/api/index.html".
 
 It can be opened in the browser.
+
+
+Run Project Steps 👎
+
+Create Jar File from this project
+
+```
+sbt package
+```
+Run application 
+
+```
+sbt run
+```
