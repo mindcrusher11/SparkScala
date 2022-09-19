@@ -31,3 +31,9 @@ javaOptions ++= Seq(
   "-XX:MaxPermSize=2048M",
   "-XX:+CMSClassUnloadingEnabled"
 )
+
+ThisBuild / assemblyMergeStrategy := {
+  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+  case x                             => MergeStrategy.first
+}
+Global / excludeLintKeys ++= Set(assemblyMergeStrategy, idePackagePrefix)
