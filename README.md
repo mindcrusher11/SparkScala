@@ -71,3 +71,30 @@ Run application
 ```
 sbt run
 ```
+Configuration file can be set in application.conf file which can be passed as an argument to the jar or in src/main/resources folder.
+
+e.g
+
+```
+spark {
+masterurl = "local[*]"
+appName = "omicsspark"
+checkpointDir = "./checkpoint"
+batchDuration = "15"
+}
+
+file {
+writeformat = "com.databricks.spark.csv"
+titlePrincipalPath = "/partition/sparkscalabgc/src/main/resources/imdbdata/title.principals.tsv.gz"
+titleRatingsPath = "/partition/sparkscalabgc/src/main/resources/imdbdata/title.ratings.tsv.gz"
+nameBasicsPath = "/partition/sparkscalabgc/src/main/resources/imdbdata/name.basics.tsv.gz"
+titleBasicsPath = "/partition/sparkscalabgc/src/main/resources/imdbdata/title.basics.tsv.gz"
+}
+```
+
+For running in cluster you can change masterurl value to sparkcluster or yarn
+and keep same for running on local.
+
+appName for passing application name to SparkSession.
+
+File location can be updated in file section accordingly.
