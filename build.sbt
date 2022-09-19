@@ -16,7 +16,7 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-mllib" % Versions.spark,
   "org.apache.spark" %% "spark-streaming" % Versions.spark,
   "org.apache.spark" %% "spark-hive" % Versions.spark,
-  "com.databricks" %% "spark-csv" % Versions.dataBricksCsv,
+  /*"com.databricks" %% "spark-csv" % Versions.dataBricksCsv,*/
   "com.typesafe" % "config" % Versions.config,
   "org.scalatest" %% "scalatest" % Versions.scalaTest % Test,
   "org.scalacheck" %% "scalacheck" % Versions.scalaCheck % Test,
