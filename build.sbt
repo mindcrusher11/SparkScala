@@ -16,7 +16,7 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-mllib" % Versions.spark,
   "org.apache.spark" %% "spark-streaming" % Versions.spark,
   "org.apache.spark" %% "spark-hive" % Versions.spark,
-  "com.databricks" %% "spark-csv" % Versions.dataBricksCsv,
+  /*"com.databricks" %% "spark-csv" % Versions.dataBricksCsv,*/
   "com.typesafe" % "config" % Versions.config,
   "org.scalatest" %% "scalatest" % Versions.scalaTest % Test,
   "org.scalacheck" %% "scalacheck" % Versions.scalaCheck % Test,
@@ -31,3 +31,9 @@ javaOptions ++= Seq(
   "-XX:MaxPermSize=2048M",
   "-XX:+CMSClassUnloadingEnabled"
 )
+
+ThisBuild / assemblyMergeStrategy := {
+  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+  case x                             => MergeStrategy.first
+}
+Global / excludeLintKeys ++= Set(assemblyMergeStrategy, idePackagePrefix)

@@ -11,14 +11,11 @@ import org.scalacheck.Prop.forAll
 import org.scalatest.FunSuite
 import org.scalatest.prop.Checkers
 
-class MovieSchemaCheckTest
-    extends FunSuite
-    with SharedSparkContext
-    with Checkers {
+class MovieCheckTest extends FunSuite with SharedSparkContext with Checkers {
 
   def before(): Unit = {}
 
-  test("assert dataframes generated correctly") {
+  test("Testing Dataframe Schema.") {
     val schema = StructType(
       List(
         StructField("tconst", StringType),
@@ -26,13 +23,10 @@ class MovieSchemaCheckTest
         StructField("numVotes", IntegerType)
       )
     )
-    val sqlContext = new SQLContext(sc)
 
     val titleRatingsDF =
       SparkProcessFile.getTSVData("resources/imdbdata/title.ratings.tsv.gz")
 
-    val dataframeGen = DataframeGenerator.arbitraryDataFrame(sqlContext, schema)
-    titleRatingsDF.printSchema()
     val property =
       forAll(titleRatingsDF) { dataframe =>
         dataframe.schema === schema
@@ -41,7 +35,7 @@ class MovieSchemaCheckTest
     check(property)
   }
 
-  test("test top20 movies count ") {
+  test("Testing Top20 Movies Count.") {
     val sqlContext = new SQLContext(sc)
     val top20movies = LoadIMDBData.getTopNMovies()
     val property =
@@ -52,7 +46,7 @@ class MovieSchemaCheckTest
     check(property)
   }
 
-  test("test name of oftencredited person of top20 movie") {
+  test("testing name of often credited person of top20 movie.") {
     val sqlContext = new SQLContext(sc)
     val personOftenCredited = LoadIMDBData.getPersonsMostOftenCredited()
     val property =
