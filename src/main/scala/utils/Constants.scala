@@ -20,6 +20,7 @@ object Constants {
   val rankingCol = "ranking"
   val numberOfVotesCol = "numVotes"
   val averageRatingCol = "averageRating"
+  val titleIdentifierCol = "tconst"
   val topNMovies = 20
   val votesFilterCondition = "numVotes > 50"
 

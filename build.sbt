@@ -25,12 +25,14 @@ libraryDependencies ++= Seq(
 
 Test / parallelExecution := false
 
-javaOptions ++= Seq(
+// set the main class for 'sbt run'
+Compile / run / mainClass := Some("org.bgc.uk.SparkScalaBcgMainApp")
+/*javaOptions ++= Seq(
   "-Xms512M",
   "-Xmx2048M",
   "-XX:MaxPermSize=2048M",
   "-XX:+CMSClassUnloadingEnabled"
-)
+)*/
 
 ThisBuild / assemblyMergeStrategy := {
   case PathList("META-INF", xs @ _*) => MergeStrategy.discard

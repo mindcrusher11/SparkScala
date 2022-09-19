@@ -3,12 +3,16 @@ package config
 
 import com.typesafe.config.{Config, ConfigFactory}
 
+import java.io.File
+
 /** A Singleton Class to get all data from config file
   *
   * @author
   *   Gaurhari
   */
 object DataConfigs extends IConfig {
+
+  private var conf: Config = null
 
   /*
    * A function to load config values from config file
@@ -18,7 +22,12 @@ object DataConfigs extends IConfig {
    * @return conf as Config object of typesafe
    * */
   def getConfig(filePath: String = "application.conf"): Config = {
-    val conf = ConfigFactory.load(filePath)
+    if (conf == null)
+      if (filePath.contains("/"))
+        conf = ConfigFactory.parseFile(
+          new File(filePath)
+        )
+      else conf = ConfigFactory.load(filePath)
     conf
   }
 }

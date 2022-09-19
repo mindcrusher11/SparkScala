@@ -3,6 +3,7 @@
 *.iml
 *.ipr
 *.iws
+*.gz
 .idea
 out
 .cache/
@@ -19,7 +20,17 @@ project/plugins/project/
 logs/
 project/*-shim.sbt
 project/project/
-project/target/
-target/
+project/target/*
+target
 .scala_dependencies
 .worksheet
+!target
+target/*
+!target/scala-2.11
+target/scala-2.11/*
+!target/scala-2.11/api
+target/scala-2.11/api/*
+!target/scala-2.11/api/index.html
+
+!resources
+resources/imdbdata/
