@@ -50,4 +50,10 @@ It will show text like as below :-
 
 [info] All tests passed.
 
+Scala Docs for this project can be generated using command below in current porject parent directory.
+```
+sbt doc
+```
+It will generate index.html file as "target/scala-2.11/api/index.html".
 
+It can be opened in the browser.
