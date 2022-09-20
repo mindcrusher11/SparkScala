@@ -98,3 +98,11 @@ and keep same for running on local.
 appName for passing application name to SparkSession.
 
 File location can be updated in file section accordingly.
+
+Code can run in cluster using command below
+
+```
+spark-submit --class "SparkScalaBcgMainApp" --master local[4] .target/scala-2.11/sparkscalabgc_2.11-0.1.0-SNAPSHOT.jar path/application.conf
+```
+
+** Logging is pending

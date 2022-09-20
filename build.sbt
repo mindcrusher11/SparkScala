@@ -20,7 +20,10 @@ libraryDependencies ++= Seq(
   "com.typesafe" % "config" % Versions.config,
   "org.scalatest" %% "scalatest" % Versions.scalaTest % Test,
   "org.scalacheck" %% "scalacheck" % Versions.scalaCheck % Test,
-  "com.holdenkarau" %% "spark-testing-base" % Versions.sparkTestingBase % Test
+  "com.holdenkarau" %% "spark-testing-base" % Versions.sparkTestingBase % Test,
+  "org.apache.logging.log4j" % "log4j-api" % "2.18.0",
+  "org.apache.logging.log4j" % "log4j-core" % "2.18.0",
+  "org.apache.logging.log4j" %% "log4j-api-scala" % "12.0"
 )
 
 Test / parallelExecution := false
